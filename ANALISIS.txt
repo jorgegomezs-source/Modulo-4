@@ -1,0 +1,319 @@
+================================================================================
+    DOCUMENTACIÓN Y ANÁLISIS DEL PROYECTO
+    Aplicación de Recursos Humanos en JavaScript
+    Trabajo de Módulo 25-02
+================================================================================
+
+1. DESCRIPCIÓN GENERAL DEL PROYECTO
+================================================================================
+Este es un proyecto educativo que implementa un sistema de gestión de recursos 
+humanos completamente en JavaScript vanilla (sin frameworks). La aplicación se 
+ejecuta en la consola del navegador y permite gestionar empleados, realizar 
+operaciones matemáticas y calcular estadísticas.
+
+El proyecto aborda conceptos fundamentales de JavaScript como variables, 
+condicionales, arreglos, ciclos, funciones, objetos y métodos.
+
+
+2. ESTRUCTURA DEL PROYECTO
+================================================================================
+Carpeta raíz: Trabajo de módulo 25-02/
+
+├── index.html                    → Página HTML que carga la aplicación
+├── README.md                     → Documentación en Markdown
+├── ANALISIS.txt                  → Este archivo
+└── assets/
+    └── js/
+        └── script.js             → Código JavaScript principal (251 líneas)
+
+
+3. COMPONENTES PRINCIPALES
+================================================================================
+
+3.1 ARCHIVO: index.html
+--------------------
+- Página HTML básica y minimalista
+- Meta tags: UTF-8 y viewport responsive
+- Carga el script.js de forma diferida (defer)
+- Sin estilos CSS ni contenido HTML evidente
+- Todo el funcionamiento ocurre en la consola del navegador
+
+
+3.2 ARCHIVO: script.js
+--------------------
+El archivo script.js está dividido en 3 secciones temáticas:
+
+SECCIÓN 1: BIENVENIDA Y EVENTOS INICIALES
+- Mensaje coloreado de bienvenida en consola
+- Solicita el nombre del usuario mediante prompt()
+- Greeting personalizado con alert()
+
+SECCIÓN 2: OPERACIONES MATEMÁTICAS CON VALIDACIÓN
+- Entrada de dos números desde el usuario
+- Validación con isNaN() para números válidos
+- Operaciones: suma, resta, multiplicación, división
+- Funciones individuales usando arrow functions:
+  * sumar(a, b) → a + b
+  * restar(a, b) → a - b
+  * multiplicar(a, b) → a * b
+  * dividir(a, b) → validación para evitar división por cero
+- Switch case para seleccionar operación
+- Manejo de errores y normalización de entrada (.toLowerCase(), .trim())
+
+SECCIÓN 3: GESTIÓN DE EMPLEADOS
+- Base de datos local con 6 empleados predefinidos
+- Cada empleado tiene propiedades: nombre, experiencia, salario, departamento
+- Métodos dinámicos agregados a cada objeto:
+  * getNivelExperiencia() → Clasifica en Junior/Mid/Senior/Expert
+  * calcularBono() → 10% del salario
+
+
+4. FUNCIONALIDADES IMPLEMENTADAS
+================================================================================
+
+4.1 FUNCIONES MATEMÁTICAS
+--------------------------
+- sumar(a, b): suma dos números
+- restar(a, b): resta dos números
+- multiplicar(a, b): multiplica dos números
+- dividir(a, b): divide con validación de cero
+
+
+4.2 FUNCIONES DE CÁLCULO ESTADÍSTICO
+-----------------------------------
+- calcularPromedioExperiencia(): Promedio de años usando bucle for
+- calcularSalarioPromedio(): Promedio de salarios usando reduce()
+- Retornan valores con 2 decimales (.toFixed(2))
+
+
+4.3 FUNCIONES DE GESTIÓN DE EMPLEADOS
+-----------------------------------
+- agregarEmpleado(nombre, experiencia, salario, departamento):
+  * Valida todos los datos de entrada
+  * Crea nuevo objeto con métodos
+  * Actualiza estadísticas en consola
+  
+- filtrarPorExperiencia(minExperiencia):
+  * Usa forEach para iterar
+  * Devuelve empleados que cumplan el criterio
+  * Muestra información formateada
+
+- mostrarEmpleados():
+  * Usa map para transformar datos
+  * Muestra información completa de cada empleado
+  * Incluye nivel, bono y departamento
+
+
+4.4 MENÚ INTERACTIVO
+-------------------
+- iniciarAplicacion(): Bucle while que mantiene activo el menú
+- Opciones:
+  1. Agregar empleado
+  2. Filtrar por experiencia
+  3. Mostrar todos los empleados
+  4. Calcular promedios
+  5. Salir
+
+
+5. CONCEPTOS DE JAVASCRIPT IMPLEMENTADOS
+================================================================================
+
+5.1 VARIABLES Y TIPOS DE DATOS
+------------------------------
+✓ let y const declaraciones
+✓ Strings, números, objetos
+✓ Arreglos de objetos
+✓ Conversión de tipos (parseFloat, parseInt)
+
+
+5.2 OPERADORES Y EXPRESIONES
+---------------------------
+✓ Operadores aritméticos: +, -, *, /
+✓ Operadores de comparación: <, >=, ===, !==
+✓ Operador ternario: ? :
+✓ Template literals: `${variable}`
+
+
+5.3 CONDICIONALES
+----------------
+✓ if/else statements
+✓ switch/case para múltiples opciones
+✓ Operador && para validaciones múltiples
+✓ Condiciones anidadas
+
+
+5.4 BUCLES Y ITERACIÓN
+---------------------
+✓ for clásico: recorrer arreglos con índice
+✓ forEach(): iterar con callback
+✓ map(): transformar arreglos
+✓ reduce(): agregar valores
+✓ while: menú interactivo
+
+
+5.5 FUNCIONES
+-----------
+✓ Funciones declaradas (function)
+✓ Arrow functions (=>)
+✓ Funciones con parámetros y retorno
+✓ Funciones sin retorno (void)
+
+
+5.6 OBJETOS Y MÉTODOS
+-------------------
+✓ Objetos literales con propiedades
+✓ Métodos agregados dinámicamente
+✓ this para referencia al contexto
+✓ Acceso a propiedades con punto
+
+
+5.7 TECNOLOGÍAS DE ENTRADA/SALIDA
+--------------------------------
+✓ console.log(): salida
+✓ console.error(): errores
+✓ console.warn(): advertencias
+✓ prompt(): entrada de datos
+✓ alert(): diálogos modales
+
+
+6. FLUJO DE EJECUCIÓN
+================================================================================
+
+1. Página carga index.html
+2. Script se ejecuta:
+   - Muestra mensaje de bienvenida coloreado
+   - Solicita nombre del usuario (prompt)
+   - Muestra mensaje de bienvenida personalizado (alert)
+   - Pide dos números y una operación
+   - Valida y ejecuta la operación matemática
+   - Muestra lista de comandos disponibles en consola
+   - Espera a que usuario escriba iniciarAplicacion()
+
+3. Usuario inicia el menú y puede:
+   - Agregar empleados
+   - Filtrar por experiencia
+   - Ver estadísticas
+   - Llamar funciones directamente en consola
+
+
+7. VALIDACIONES Y MANEJO DE ERRORES
+================================================================================
+
+Validación de entrada:
+- isNaN(): verifica si es número válido
+- typeof: verifica tipo de dato
+- length: verifica longitud de strings
+- !== 0: evita división por cero
+
+Manejo de errores:
+- Mensajes de error con ❌ emoji
+- console.error() para errores críticos
+- console.warn() para advertencias
+- Valores por defecto (return 0 si arreglo vacío)
+
+
+8. DATOS DE PRUEBA (EMPLEADOS PREDEFINIDOS)
+================================================================================
+
+ID | Nombre              | Experiencia | Salario | Departamento | Nivel
+---|---------------------|-------------|---------|--------------|-------
+1  | Ana García          | 2 años      | $30,000 | Ventas       | Junior
+2  | Luis Pérez          | 8 años      | $50,000 | IT           | Senior
+3  | Marta Ruiz          | 12 años     | $70,000 | RRHH         | Expert
+4  | José Torres         | 5 años      | $40,000 | Marketing    | Mid
+5  | Elena Sanz          | 1 año       | $25,000 | Ventas       | Junior
+6  | Cristian Mo         | 15 años     | $80,000 | IT           | Expert
+
+Estadísticas iniciales:
+- Promedio de experiencia: 7.17 años
+- Promedio de salarios: $49,166.67
+
+
+9. CÓMO USAR LA APLICACIÓN
+================================================================================
+
+Pasos para ejecutar:
+1. Abre index.html en un navegador moderno
+2. Presiona F12 para abrir Developer Tools
+3. Ve a la pestaña "Console"
+4. El script se ejecuta automáticamente
+5. Completa los prompts iniciales
+
+Para usar el menú:
+- Escribe: iniciarAplicacion()
+- Presiona Enter
+- Sigue las opciones del menú
+
+Para usar funciones directamente:
+- agregarEmpleado('Juan', 3, 35000, 'IT')
+- filtrarPorExperiencia(5)
+- mostrarEmpleados()
+- calcularPromedioExperiencia()
+- calcularSalarioPromedio()
+
+
+10. FORTALEZAS DEL PROYECTO
+================================================================================
+
+✓ Código bien comentado y documentado
+✓ Funciones reutilizables y modularizadas
+✓ Validaciones robustas de entrada
+✓ Manejo de errores apropiado
+✓ Interfaz interactiva de usuario
+✓ Uso correcto de métodos array (forEach, map, reduce)
+✓ Información visual con emojis en consola
+✓ Ejemplos claros de conceptos fundamentales
+✓ Control de flujo complejo (switch, while, if/else)
+✓ Objetos con métodos dinámicos
+
+
+11. ÁREAS DE MEJORA POTENCIAL
+================================================================================
+
+- Persistencia de datos (localStorage o base de datos)
+- Interfaz gráfica con HTML/CSS (en lugar de solo consola)
+- Búsqueda por nombre o departamento
+- Edición/eliminación de empleados
+- Exportar datos a CSV o JSON
+- Autenticación de usuario
+- Validación de email o teléfono
+- Cálculos más complejos (impuestos, descuentos)
+- Historial de cambios
+- Integración con API backend
+
+
+12. TECNOLOGÍAS UTILIZADAS
+================================================================================
+
+Backend:
+- JavaScript ES6 (arrow functions, template literals, const/let)
+- Métodos nativos de Array (forEach, map, reduce)
+- Métodos de validación (isNaN, typeof)
+
+Frontend:
+- HTML5 (estructura semántica básica)
+- Navegador moderno (DevTools Console)
+
+Herramientas de desarrollo:
+- VS Code (editor recomendado)
+- Git (control de versiones)
+- Browser DevTools (consola del navegador)
+
+
+13. CONCLUSIÓN
+================================================================================
+
+Este proyecto aplica conceptos fundamentales de JavaScript. Implementa de manera práctica:
+
+- Estructuras de control (if/else, switch, while)
+- Métodos de iteración (for, forEach, map, reduce)
+- Definición y llamada de funciones
+- Creación y manipulación de objetos
+- Validación y manejo de errores
+- Interacción con el usuario
+
+El código está bien organizado, es mantenible y sirve como referencia para 
+aprender programación orientada a objetos básica en JavaScript.
+
+Nivel: Principiante/Intermedio
+
